@@ -15,6 +15,9 @@
         margin-bottom: auto;
         text-align: center;
       }
+      textarea {
+        vertical-align: top;
+      }
     </style>
   </head>
   
@@ -27,7 +30,16 @@
 
     <div class="center">
       <div>
-        <%= render "form", project: @project %>
+        <%= form_tag :action => 'create' do %>
+          <p><label for = "project_title">Title</label>:
+          <%= text_field 'project', 'title' %></p>
+
+          <p><label for - "project_description">Description</label>:
+          <%= text_area 'project', 'description' %></p>
+
+          <%= submit_tag "Create" %>
+          <% end %>
+        
       </div>
       <br>
       <div>

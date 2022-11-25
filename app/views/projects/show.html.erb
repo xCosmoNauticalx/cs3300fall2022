@@ -19,15 +19,21 @@
   </head>
   
   <body>
-    <p style="color: green"><%= notice %></p>
-
-    <%= render @project %>
-
-    <div>
-      <%= link_to "Edit this project", edit_project_path(@project) %> |
-      <%= link_to "Back to projects", projects_path %>
-
-      <%= button_to "Delete this project", @project, method: :delete %>
+    <div class="title-banner">
+        <h1><%= @project.title %></h1>
     </div>
+      <div class="center">
+        <p style="color: green"><%= notice %></p>
+
+        <%= render @project %>
+
+        <div>
+          <%= link_to "Edit", edit_project_path(@project) %> |
+          <%= link_to "All projects", projects_path %>
+          <br>
+          <br>
+          <%= button_to "Delete this project", @project, method: :delete %>
+        </div>
+      </div>
   </body>
 </html>
