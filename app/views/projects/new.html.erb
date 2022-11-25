@@ -1,9 +1,39 @@
-<h1>New project</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Project</title>
+    <style>
+      .title-banner {
+        text-align: center;
+        border-bottom: 1px solid black
+      }
+      .center {
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="title-banner">
+      <h1>New Project</h1>
+    </div>
+    <br>
+    <br>
 
-<%= render "form", project: @project %>
+    <div class="center">
+      <div>
+        <%= render "form", project: @project %>
+      </div>
+      <br>
+      <div>
+        <%= link_to "Back to projects", projects_path %>
+      </div>
+    </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to projects", projects_path %>
-</div>
+  </body>
+</html>

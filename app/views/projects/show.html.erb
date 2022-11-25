@@ -1,10 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Project</title>
+    <style>
+      .title-banner {
+        text-align: center;
+        border-bottom: 1px solid black
+      }
+      .center {
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <p style="color: green"><%= notice %></p>
 
-<%= render @project %>
+    <%= render @project %>
 
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+    <div>
+      <%= link_to "Edit this project", edit_project_path(@project) %> |
+      <%= link_to "Back to projects", projects_path %>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
-</div>
+      <%= button_to "Delete this project", @project, method: :delete %>
+    </div>
+  </body>
+</html>
