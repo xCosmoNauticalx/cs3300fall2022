@@ -29,18 +29,8 @@
     <br>
 
     <div class="center">
-      <div>
-        <%= form_tag :action => 'create' do %>
-          <p><label for = "project_title">Title</label>:
-          <%= text_field 'project', 'title' %></p>
-
-          <p><label for - "project_description">Description</label>:
-          <%= text_area 'project', 'description' %></p>
-
-          <%= submit_tag "Create" %>
-          <% end %>
-        
-      </div>
+      <%= render "form", project: @project %>
+      <%= submit_tag "Create" %>
       <br>
       <div>
         <%= link_to "Back to projects", projects_path %>

@@ -12,13 +12,13 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <p><label for = "project_title">Title</label>:
+    <%= text_field 'project', 'title' %></p>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <p><label for = "project_description">Description</label>:
+  <%= text_area 'project', 'description' %></p>
   </div>
 
   <div>
