@@ -6,4 +6,8 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+
 export { application }

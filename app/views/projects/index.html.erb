@@ -23,6 +23,7 @@
     padding: 10px;
     margin: 25px;
     outline: 1px solid #F4A5AE;
+
   }
   .project-button {
     background-color: #A8577E;
@@ -37,6 +38,12 @@
     padding-right: 10%;
     text-align: right;
   }
+  .nav-button {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  
 </style>
 </head>
   <body>
@@ -46,19 +53,21 @@
         <!-- Links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+          <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Account
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Sign In</a></li>
-                <li><a class="dropdown-item" href="#">Sign Up</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><% if user_signed_in? %>
+                  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-button" %>          
+                <% else %>
+                  <a href="/users/sign_in"> Sign in</a>
+                <% end %></li>
+                </li>
               </ul>
-            </li>
+          </li>
         </ul>
       </div>
     </nav>
@@ -122,18 +131,25 @@
     </br>
     <div class="border-bottom border-dark" align="center">
         <h4>Projects</h4>
-      </div>
-    <div class="row" align="center">
-    <%= @projects.each do |s| %>
-      <div class="col project-card">
-        <h5><%= s.title %></h5>
-        <p><%= s.description %></p>
-        <p><%= link_to "Show this project", s, method: :delete, class: 'btn project-button' %>
-      </div>
-    <% end %>
     </div>
-    <div class="create-button">
-     <%= button_to "+", projects_path, method: :post, class: "btn project-button" %>
+    <table align="center">
+      <% @projects.in_groups_of(3, false) do |group| %>
+        <tr>
+          <% group.each do |s| %>
+            <td>
+            <div align="center" class="col project-card">
+              <h5><%= s.title %></h5>
+              <p><%= s.description %></p>
+              <p><%= link_to "Show this project", s, class: 'btn project-button' %>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+    <div class=" create-button">
+    <!--- <%= button_to "+", projects_path, method: :post, class: "btn project-button" %> -->
+     <a href="/projects/new" class="btn project-button">+</a>
     </div>
 
   </body>
